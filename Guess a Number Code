@@ -1,104 +1,102 @@
-/**
- * A guessing game that generates a random number and asks the user to guess it. It will give you hints if you guess too high or too low. Then it will output a message depending on how many tries it took the user.
- *
- * @author Aaron Zheng
- * @version 09/18/23
- */
-import java.util.Scanner;
+package guess;
+
 import java.util.Random;
+import java.util.Scanner;
 
-public class GuessANumber {
+public class guess {
 
-    public static void main(String[] args) {
-        Scanner scnr = new Scanner(System.in);
-       Random rdm = new Random();
-        int inputSeed;
-        int guess;
-        int tries = 0;
-        
-        //Enter a random seed
-       System.out.print("Enter a random seed: ");
-       inputSeed = scnr.nextInt();
-       rdm.setSeed(inputSeed);
-       
-       //Generates a random number.
-       int random = rdm.nextInt(200) + 1;
-       
-       //The random number.
-       //System.out.println("DEBUG: The number picked is: " + random);
-   
-       //Loops program until user guesses the correct number
-       while (true) {
-          //Tells user to pick a number
-          System.out.print("Enter a guess between 1 and 200: ");
-          guess = scnr.nextInt();
-          
-          //Number of tries it takes user to guess the correct number.
-          tries = tries + 1;
-          
-          //Breaks the loop when user guesses the correct number.
-          if (guess == random) {
-             System.out.println("Congratulations!  Your guess was correct!");
-             break;
-          }
-          
-          //Prints when guess is out of range.
-          if (guess < 1 || guess > 200) {
-            System.out.println("Your guess is out of range.  Pick a number between 1 and 200.");
-            }
-          
-          //Prints when user's guess is incorrect
-          if (guess != random) {
-             
-             //Guess is lower than random number
-             if (guess < random) {
-                System.out.println("Your guess was too low - try again.");
-             }
-             
-             //Guess is higher than random number
-             else if (guess > random) {
-                System.out.println("Your guess was too high - try again.");
-             }
+	public static void main(String[] args) {
+		Scanner scnr = new Scanner(System.in);
+	       Random rdm = new Random();
+	        int inputSeed;
+	        int guess;
+	        int tries = 0;
+	        
+	        //Enter a random seed
+	       System.out.print("Enter a random seed: ");
+	       inputSeed = scnr.nextInt();
+	       rdm.setSeed(inputSeed);
+	       
+	       //Generates a random number.
+	       int random = rdm.nextInt(200) + 1;
+	       
+	       //The random number.
+	       //System.out.println("DEBUG: The number picked is: " + random);
+	   
+	       //Loops program until user guesses the correct number
+	       while (true) {
+	          //Tells user to pick a number
+	          System.out.print("Enter a guess between 1 and 200: ");
+	          guess = scnr.nextInt();
+	          
+	          //Number of tries it takes user to guess the correct number.
+	          tries = tries + 1;
+	          
+	          //Breaks the loop when user guesses the correct number.
+	          if (guess == random) {
+	             System.out.println("Congratulations!  Your guess was correct!");
+	             break;
+	          }
+	          
+	          //Prints when guess is out of range.
+	          if (guess < 1 || guess > 200) {
+	            System.out.println("Your guess is out of range.  Pick a number between 1 and 200.");
+	            }
+	          
+	          //Prints when user's guess is incorrect
+	          if (guess != random) {
+	             
+	             //Guess is lower than random number
+	             if (guess < random) {
+	                System.out.println("Your guess was too low - try again.");
+	             }
+	             
+	             //Guess is higher than random number
+	             else if (guess > random) {
+	                System.out.println("Your guess was too high - try again.");
+	             }
 
-            System.out.println();
-          }
-       }
-       System.out.println();
-       
-       //Prints the random number
-       System.out.println("I had chosen " + random + " as the target number.");
-       
-       //Prints number of tries it took the user to guess the correct number.
-       System.out.println("You guessed it in " + tries + " tries.");
-       
-       //Guessed in 1 try
-       if (tries == 1) {
-          System.out.println("That was impossible!");
-       }
-       
-       //Guessed in 2-3 tries
-       else if (tries == 2 || tries == 3) {
-          System.out.println("You're pretty lucky!");
-       }
-       
-       //Guessed in 4-7 tries
-       else if (tries >=4 && tries <= 7) {
-          System.out.println("Not bad, not bad...");
-       }
-       
-       //Guessed in 8 tries
-       else if (tries == 8) {
-          System.out.println("That was not very impressive.");
-       }
-       
-       //Guessed in 9-10 tries
-       else if (tries >= 9 && tries <= 10) {
-          System.out.println("Are you having any fun at all?");
-       }
-       
-       //Guessed in 11 or more tries
-       else if (tries >= 11) {
-          System.out.println("Maybe you should play something else.");
-       }
-    }
-}
+	            System.out.println();
+	          }
+	       }
+	       System.out.println();
+	       
+	       //Prints the random number
+	       System.out.println("I had chosen " + random + " as the target number.");
+	       
+	       //Prints number of tries it took the user to guess the correct number.
+	       System.out.println("You guessed it in " + tries + " tries.");
+	       
+	       //Guessed in 1 try
+	       if (tries == 1) {
+	          System.out.println("That was impossible!");
+	       }
+	       
+	       //Guessed in 2-3 tries
+	       else if (tries == 2 || tries == 3) {
+	          System.out.println("You're pretty lucky!");
+	       }
+	       
+	       //Guessed in 4-7 tries
+	       else if (tries >=4 && tries <= 7) {
+	          System.out.println("Not bad, not bad...");
+	       }
+	       
+	       //Guessed in 8 tries
+	       else if (tries == 8) {
+	          System.out.println("That was not very impressive.");
+	       }
+	       
+	       //Guessed in 9-10 tries
+	       else if (tries >= 9 && tries <= 10) {
+	          System.out.println("Are you having any fun at all?");
+	       }
+	       
+	       //Guessed in 11 or more tries
+	       else if (tries >= 11) {
+	          System.out.println("Maybe you should play something else.");
+	       }
+	       scnr.close();
+	    }
+
+	}
